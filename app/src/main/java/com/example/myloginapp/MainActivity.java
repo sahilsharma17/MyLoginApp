@@ -23,13 +23,25 @@ public class MainActivity extends AppCompatActivity {
 
     GoogleSignInOptions gso;
     GoogleSignInClient gsc;
-    ImageView googleBtn;
+    ImageView googleBtn,fbBtn;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //fb login
+        fbBtn = findViewById(R.id.fb_btn);
+        fbBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+
+
+        // Google Integration
         googleBtn = findViewById(R.id.google_btn);
 
         gso = new GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN).requestEmail().build();
@@ -46,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-
+        // Basic Sign In start
         TextView username = findViewById(R.id.username);
         TextView password = findViewById(R.id.password);
 
@@ -66,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+        // Basic Sign In end
     }
 
     void signIn(){
